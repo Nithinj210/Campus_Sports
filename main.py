@@ -57,14 +57,16 @@ else:
 	
 
 
-	tab1, tab2,tab3 = st.tabs(["Event Wise Result","Leader Board","Registration"])
+	tab1, tab2 = st.tabs(["Event Wise Result","Leader Board",])
 
 	df=athletics()
+	print(df)
+	print(df.columns)
 	evn=df['Event'].unique()
 
 	with tab1:
 
-		c1,c2=st.columns(2)
+		c1=st.columns(2)
 		#with c1:
 		st.markdown('###### Event result')
 		option = st.selectbox('',evn,key='event')
@@ -72,7 +74,7 @@ else:
 		st.write('Results For ', option)
 
 		ev=df[df['Event']==option]
-		ev=ev[['Name','Faculty','Department','Position']]
+		ev=ev[['Point','Faculty','Position']]
 			
 			
 		bd=ev.style.set_properties(**{'background-color': 'black',
@@ -90,10 +92,10 @@ else:
 				   #)
 		st.write('---')	       
 		#with c2:
-		st.markdown('###### Leaderboard - Individual')
-		dpt=df[df['Department']!='']
-		dpt=dpt.groupby(['Name']).sum()['Points'].reset_index().sort_values(by='Points', ascending=False).head(10)
-		st.dataframe(dpt)
+		# st.markdown('###### Leaderboard - Individual')
+		# dpt=df[df['Department']!='']
+		# dpt=dpt.groupby(['Name']).sum()['Points'].reset_index().sort_values(by='Points', ascending=False).head(10)
+		# st.dataframe(dpt)
 			
 
 		
@@ -104,64 +106,65 @@ else:
 		
 			
 			st.markdown('###### Leaderboard - Faculty wise')
-			st.dataframe(df.groupby(['Faculty']).sum()['Points'].reset_index().sort_values(by='Points', ascending=False))
+			st.dataframe(df.groupby(['Faculty']).sum()['Point'].reset_index().sort_values(by='Point', ascending=False))
 		
 		with c2:
-			st.markdown('###### Leaderboard - Department wise')
-			dpt=df.groupby(['Department']).sum()['Points'].reset_index().sort_values(by='Points', ascending=False)
-			dpt=dpt.head(10)
-			st.dataframe(dpt[dpt['Department']!=''])
+		#	st.markdown('-- hi prabi..')
+		# 	st.markdown('###### Leaderboard - Department wise')
+		# 	dpt=df.groupby(['Department']).sum()['Points'].reset_index().sort_values(by='Points', ascending=False)
+		# 	dpt=dpt.head(10)
+		# 	st.dataframe(dpt[dpt['Department']!=''])
 
 		
 		
 
 
-	with tab3:
+	# with tab3:
 
-		#name,mob,mail= None
-		with st.form("reg", clear_on_submit=True):
-			tb1,tb2=st.columns(2)
+	# 	#name,mob,mail= None
+	# 	with st.form("reg", clear_on_submit=True):
+	# 		tb1,tb2=st.columns(2)
 		
-			#st.write('name')
-			with tb1:
-				name=st.text_input(label='Name')
-				mob=st.text_input(label='Phone')
-				mail=st.text_input(label='E-mail')
-			with tb2:
-				gen=st.selectbox('Gender',('Male','Female','Transgender'))
-				d = st.date_input( "Date of birt",datetime.date(1999, 1, 1))
+	# 		#st.write('name')
+	# 		with tb1:
+	# 			name=st.text_input(label='Name')
+	# 			mob=st.text_input(label='Phone')
+	# 			mail=st.text_input(label='E-mail')
+	# 		with tb2:
+	# 			gen=st.selectbox('Gender',('Male','Female','Transgender'))
+	# 			d = st.date_input( "Date of birt",datetime.date(1999, 1, 1))
 				
-				fac=st.selectbox('Faculty',
-				('Applied Science and Technology','Arts, Education & Music','IMk, Commerce & Law','OrientalStudies','Science','Social Science'))
+	# 			fac=st.selectbox('Faculty',
+	# 			('Applied Science and Technology','Arts, Education & Music','IMk, Commerce & Law','OrientalStudies','Science','Social Science'))
 			
-			items = st.multiselect(
-		 'Events (Maximum 3 events)',
-		 ['100 meter','200 meter','400 meter','1500 meter','Walking (3000 meter)','Shot put','Discus Throw','Javelin throw','Cricket Ball Throw'])
+	# 		items = st.multiselect(
+	# 	 'Events (Maximum 3 events)',
+	# 	 ['100 meter','200 meter','400 meter','1500 meter','Walking (3000 meter)','Shot put','Discus Throw','Javelin throw','Cricket Ball Throw'])
 			
 			
-			submit_button = st.form_submit_button(label='Submit')
-		#st.write(len(name),len(mob),len(mail))
+	# 		submit_button = st.form_submit_button(label='Submit')
+	# 	#st.write(len(name),len(mob),len(mail))
 		
 		
 			
-		if len(items)>3 and submit_button==True:
-			st.error('Error: items cannot be more than 3')
-		#st.write(name,mob,mail,fac)
-		elif submit_button==True and ((len(name) and len(mob) and len(mail))<1)  :
-			st.error("Error: all fields must be filled")
+	# 	if len(items)>3 and submit_button==True:
+	# 		st.error('Error: items cannot be more than 3')
+	# 	#st.write(name,mob,mail,fac)
+	# 	elif submit_button==True and ((len(name) and len(mob) and len(mail))<1)  :
+	# 		st.error("Error: all fields must be filled")
 			
-		elif submit_button==True:
-			st.success(str(name)+' Successfully registered for ' + str(items))
+	# 	elif submit_button==True:
+	# 		st.success(str(name)+' Successfully registered for ' + str(items))
 			
-			for event in items:
+	# 		for event in items:
 				
-				lst=[name,mob,mail,gen,fac,str(d),event]
-				registration(lst)
+	# 			lst=[name,mob,mail,gen,fac,str(d),event]
+	# 			registration(lst)
 				
-with st.sidebar.expander("Developers"):
- 	st.markdown('#### [Prabin Raj K P](https://www.linkedin.com/in/prabinrajkp18/)')
- 	st.markdown('#### [Vijay V Venkitesh](https://www.linkedin.com/in/vijay-v-venkitesh-673177204/)')
- 	st.write('##### MSc Data Science \n Department of Futures Studies')
+			with st.sidebar.expander("Developers"):
+				st.markdown('#### [Prabin Raj K P](https://www.linkedin.com/in/prabinrajkp18/)')
+				st.markdown('#### [Vijay V Venkitesh](https://www.linkedin.com/in/vijay-v-venkitesh-673177204/)')
+				st.write('##### MSc Data Science \n Department of Futures Studies')
  	
      #st.image("https://static.streamlit.io/examples/dice.jpg")
 			
@@ -173,6 +176,5 @@ with st.sidebar.expander("Developers"):
 	#st.write('ssbsbbs')
 
 #st.dataframe(df)
-	
 	
 
