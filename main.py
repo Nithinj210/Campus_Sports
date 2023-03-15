@@ -35,9 +35,9 @@ image= Image.open('ei_1678606707942-removebg-preview.png')
 
 st.image(image)
 
-st.markdown('#  Campus olympics')
+st.markdown('# കെട്ടകാലത്തോടുള്ള കലഹത്തിന്റെ കുത്ത്')
 
-st.markdown('#### Departmets Union Sports Club')
+st.markdown('#### Departmets Union Arts Festival')
 
 
 
