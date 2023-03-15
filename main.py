@@ -31,7 +31,7 @@ from data import reg
 
 
 
-image= Image.open('logo.png')
+image= Image.open('ei_1678606707942-removebg-preview.png')
 
 st.image(image)
 
