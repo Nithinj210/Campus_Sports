@@ -1,7 +1,7 @@
 import streamlit as st
 
 st.set_page_config(
-     page_title="Campus olympics",
+     page_title="Arts festival",
      page_icon="ð§",
      layout="wide",
      initial_sidebar_state="expanded",
