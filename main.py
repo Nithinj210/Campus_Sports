@@ -109,7 +109,7 @@ else:
 			st.dataframe(df.groupby(['Faculty']).sum()['Point'].reset_index().sort_values(by='Point', ascending=False))
 		
 		with c2:
-		#	st.markdown('-- hi prabi..')
+			st.markdown('..')
 		# 	st.markdown('###### Leaderboard - Department wise')
 		# 	dpt=df.groupby(['Department']).sum()['Points'].reset_index().sort_values(by='Points', ascending=False)
 		# 	dpt=dpt.head(10)
@@ -164,7 +164,7 @@ else:
 			with st.sidebar.expander("Developers"):
 				st.markdown('#### [Saifudheen N](https://instagram.com/saif_udheen/)')
 				st.markdown('#### [Mohammed Ijas](https://instagram.com/ijas.21/)')
-				st.markdown('#### [Mohammed Ijas](https://instagram.com/ijas.21/)')
+				st.markdown('#### [Mohammed Nibin](https://instagram.com/_nibin_/)')
 				st.markdown('#### [Prabin Raj K P](https://www.linkedin.com/in/prabinrajkp18/)')
 				st.markdown('#### [Vijay V Venkitesh](https://www.linkedin.com/in/vijay-v-venkitesh-673177204/)')
 				st.write('##### MSc Data Science \n Department of Futures Studies')
