@@ -8,7 +8,7 @@ st.set_page_config(
      menu_items={
          'Get Help': 'https://instagram.com/keralauniversitydsu?igshid=YmMyMTA2M2Y=',
          'Report a bug': "https://www.linkedin.com/in/prabinrajkp18/",
-         'About': "# Departments union sports club - campus olympics web app"
+         'About': "# Departments Union Arts Festival web app"
      }
  )
 
@@ -162,6 +162,9 @@ else:
 	# 			registration(lst)
 				
 			with st.sidebar.expander("Developers"):
+				st.markdown('#### [Saifudheen N](https://instagram.com/saif_udheen/)')
+				st.markdown('#### [Mohammed Ijas](https://instagram.com/ijas.21/)')
+				st.markdown('#### [Mohammed Ijas](https://instagram.com/ijas.21/)')
 				st.markdown('#### [Prabin Raj K P](https://www.linkedin.com/in/prabinrajkp18/)')
 				st.markdown('#### [Vijay V Venkitesh](https://www.linkedin.com/in/vijay-v-venkitesh-673177204/)')
 				st.write('##### MSc Data Science \n Department of Futures Studies')
